@@ -67,7 +67,7 @@
       # lla = "eza -al --color=always";
       # tree = "eza --tree";
       gco = "git checkout";
-      open = "xdg-open";
+      open = "/mnt/c/Windows/explorer.exe";
       nfl = "nix flake lock";
       nflu = "nix flake lock --update-input";
       img = "eog"; # image viewer
@@ -101,6 +101,8 @@
         }; ssh-port'';
       sh = "stat --format '%a'";
       cdspeak = "cd ~/Documents/code/github.com/back2nix/speaker";
+      cdhome = "cd /mnt/c/Users/bagau";
+      cdcode = "cd /mnt/c/Users/bagau/code";
       cdgo = "cd ~/Documents/code/github.com/back2nix";
       st = "stat --format '%a'";
       fe = ''
@@ -120,7 +122,10 @@
       gd = "git diff --name-only --diff-filter=d $@ | xargs bat --diff";
       cdnix = "cd ~/Documents/code/github.com/back2nix/nix/my-nix-config-*";
       cdinfo = "cd ~/Documents/code/github.com/back2nix/info";
-      clip = "head -c -1|xclip -i -selection clipboard";
+      clip = "head -c -1|/mnt/c/Windows/System32/clip.exe";
+      pbcopy = "/mnt/c/Windows/System32/clip.exe";
+      pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
+      explorer = "/mnt/c/Windows/explorer.exe";
       rd = "readlink -f";
       update = "sudo nixos-rebuild switch";
       hupdate = "home-manager switch";

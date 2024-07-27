@@ -22,7 +22,7 @@
   security.sudo.wheelNeedsPassword = false;
 
   # FIXME: uncomment the next line to enable SSH
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   users.users.${username} = {
     isNormalUser = true;
