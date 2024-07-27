@@ -9,6 +9,7 @@
   nixvim' = inputs.nixvim.packages."x86_64-linux".default;
   nvim = nixvim'.extend {};
   unstable-packages = with pkgs.unstable; [
+    (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];}) # "FantasqueSansMono"
     nvim
     # FIXME: select your core binaries that you always want on the bleeding-edge
     bat
@@ -86,7 +87,7 @@ in {
 
     sessionVariables.EDITOR = "nvim";
     # FIXME: set your preferred $SHELL
-    sessionVariables.SHELL = "/etc/profiles/per-user/${username}/bin/fish";
+    sessionVariables.SHELL = "/etc/profiles/per-user/${username}/bin/zsh";
   };
 
   home.packages =
