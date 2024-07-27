@@ -12,10 +12,7 @@
   inputs.nixos-wsl.url = "github:nix-community/NixOS-WSL";
   inputs.nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
-  inputs.nix-index-database.url = "github:Mic92/nix-index-database";
-  inputs.nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
-  inputs.jeezyvim.url = "github:LGUG2Z/JeezyVim";
+  inputs.nixvim.url = "github:back2nix/nixvim";
 
   outputs = inputs:
     with inputs; let
@@ -33,7 +30,6 @@
 
         overlays = [
           nur.overlay
-          jeezyvim.overlays.default
 
           (_final: prev: {
             unstable = import nixpkgs-unstable {
@@ -52,7 +48,7 @@
       };
 
       argDefaults = {
-        inherit secrets inputs self nix-index-database;
+        inherit secrets inputs self;
         channels = {
           inherit nixpkgs nixpkgs-unstable;
         };
@@ -82,7 +78,7 @@
 
       nixosConfigurations.nixos = mkNixosConfiguration {
         hostname = "nixos";
-        username = "nixos"; # FIXME: replace with your own username!
+        username = "alina"; # FIXME: replace with your own username!
         modules = [
           nixos-wsl.nixosModules.wsl
           ./wsl.nix
